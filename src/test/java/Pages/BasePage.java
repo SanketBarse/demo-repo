@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BasePage {
 	WebDriver driver;
 	
@@ -16,11 +18,11 @@ public class BasePage {
 		
 		if (driver == null) {
 			if (browserName.equalsIgnoreCase("chrome")) {
-				System.setProperty("webdriver.chrome.driver", path + "\\src\\static\\chromedriver.exe");
+				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
 			}
 			else if (browserName.equalsIgnoreCase("firefox")) {
-				System.setProperty("webdriver.gecko.driver", path + "\\src\\static\\msedgedriver.exe");
+				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver();
 			} 
 			else{

@@ -1,13 +1,15 @@
 package TestRunner;
 
 
+import java.io.File;
+
 import org.testng.annotations.DataProvider;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		features= {"C:\\Users\\barse\\eclipse-workspace\\CucumberProj\\src\\test\\resources\\Features\\"},
+		features = {"src/test/resources/Features"},
 		glue= {"StepsDefination"}
 		)
 
@@ -18,4 +20,6 @@ public class MyTestRunner extends AbstractTestNGCucumberTests{
 	public Object[][] scenarios(){
 		return super.scenarios();
 	}
+
+
 }

@@ -2,6 +2,7 @@ package StepsDefination;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import Pages.BasePage;
 import Pages.LoginPage;
@@ -55,7 +56,10 @@ public class LoginSteps {
 		Assert.assertTrue(true);
 	}
 	
-
+	@Test
+	public void runtest(){
+		System.out.println("Hello working");
+	}
 
 
 	

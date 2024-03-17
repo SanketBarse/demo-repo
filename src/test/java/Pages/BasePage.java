@@ -5,21 +5,24 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BasePage {
 	WebDriver driver;
-	
+
 	String path = System.getProperty("user.dir");
 	
 	public WebDriver getDriver(String browserName) {
 		
 		if (driver == null) {
 			if (browserName.equalsIgnoreCase("chrome")) {
+				ChromeOptions options = new ChromeOptions();
+				options.addArguments("headless");
 				WebDriverManager.chromedriver().setup();
-				driver = new ChromeDriver();
+				driver = new ChromeDriver(options);
 			}
 			else if (browserName.equalsIgnoreCase("firefox")) {
 				WebDriverManager.firefoxdriver().setup();
